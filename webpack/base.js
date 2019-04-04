@@ -16,6 +16,7 @@ var postcssLoaderOptions = {
 }
 
 var config = {
+  cache: true,
   mode: 'none',
   entry: {},
   output: {
@@ -23,7 +24,9 @@ var config = {
     filename: (appConfig.node_env === 'production' ? 'javascripts/[name]-[hash].js' : 'javascripts/[name].js'),
     sourceMapFilename: (appConfig.node_env === 'production' ? 'javascripts/[name]-[hash].js.map' : 'javascripts/[name].js.map'),
   },
-  cache: true,
+  optimization: {
+    minimize: (appConfig.node_env === 'production' ? true : false)
+  },
   module: {
     rules: [
       {
