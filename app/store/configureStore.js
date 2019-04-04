@@ -1,4 +1,10 @@
-import { createStore, compose, applyMiddleware, combineReducers } from 'redux'
+import {
+  createStore,
+  compose,
+  applyMiddleware,
+  combineReducers,
+} from 'redux'
+
 import { persistStore, persistReducer } from 'redux-persist'
 import { createLogger } from 'redux-logger'
 import { cacheEnhancer } from 'redux-cache'
@@ -17,8 +23,8 @@ const mainPersistConfig = {
 
 const middleware = [thunk]
 
-if (isDevelopment) { 
-  middleware.push(createLogger()) 
+if (isDevelopment) {
+  middleware.push(createLogger())
 }
 
 const reducers = combineReducers({
@@ -26,7 +32,7 @@ const reducers = combineReducers({
 })
 
 const enhancers = [applyMiddleware(...middleware)]
-const persistConfig = {enhancers}
+const persistConfig = { enhancers }
 const store = createStore(reducers, undefined, compose(...enhancers, cacheEnhancer()))
 
 if (!isDevelopment && module.hot) {
@@ -38,17 +44,19 @@ if (!isDevelopment && module.hot) {
 
 const persistor = persistStore(store, persistConfig, () => {
   if (isDevelopment) {
-    console.log(store.getState())
+    console.log(store.getState()) // eslint-disable-line no-console
   }
 })
 
+/* eslint-disable arrow-body-style */
 const configureStore = () => {
   // uncomment this for clearing redux persistor storage
   // if (isDevelopment) {
   //   persistor.purge()
   // }
 
-  return {persistor, store}
+  return { persistor, store }
 }
+/* eslint-enable arrow-body-style */
 
 export default configureStore
