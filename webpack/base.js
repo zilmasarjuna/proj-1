@@ -1,12 +1,11 @@
-var path              = require('path')
-var webpack           = require('webpack')
-var autoprefixer      = require('autoprefixer')
+var path = require('path')
+var webpack = require('webpack')
+var autoprefixer = require('autoprefixer')
 var CopyWebpackPlugin = require('copy-webpack-plugin')
 
 var appConfig = {
-  project_name:     process.env.PROJECT_NAME     || 'clapping-ape',
-  node_env:         process.env.NODE_ENV         || 'development',
-  base_url:         process.env.BASE_URL         || 'http://localhost:3001',
+  project_name: process.env.PROJECT_NAME || 'clapping-ape',
+  node_env: process.env.NODE_ENV || 'development',
 }
 
 var postcssLoaderOptions = {

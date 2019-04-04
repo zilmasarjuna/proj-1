@@ -1,14 +1,14 @@
 var history = require('connect-history-api-fallback')
 var express = require('express')
-var app     = express()
-var port    = process.env.PORT || 8082
+var app = express()
+var port = process.env.PORT || 8082
 
 if (process.env.NODE_ENV !== 'production') {
-  var config                 = require('./webpack/development')
-  var webpack                = require('webpack')
-  var webpackDevMiddleware   = require('webpack-dev-middleware')
-  var webpackHotMiddleware   = require('webpack-hot-middleware')
-  var compiler               = webpack(config)
+  var config = require('./webpack/development')
+  var webpack = require('webpack')
+  var webpackDevMiddleware = require('webpack-dev-middleware')
+  var webpackHotMiddleware = require('webpack-hot-middleware')
+  var compiler = webpack(config)
   
   app.use(
     webpackDevMiddleware(compiler, {
