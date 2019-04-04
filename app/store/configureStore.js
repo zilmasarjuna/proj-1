@@ -35,7 +35,7 @@ const enhancers = [applyMiddleware(...middleware)]
 const persistConfig = { enhancers }
 const store = createStore(reducers, undefined, compose(...enhancers, cacheEnhancer()))
 
-if (!isDevelopment && module.hot) {
+if (isDevelopment && module.hot) {
   module.hot.accept('reducers', () => {
     const nextRootReducer = require('reducers').default // eslint-disable-line global-require
     store.replaceReducer(nextRootReducer)

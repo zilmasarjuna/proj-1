@@ -1,5 +1,3 @@
-import 'babel-polyfill'
-import React from 'react'
 import { render } from 'react-dom'
 import { flowRight } from 'lodash'
 import { AppContainer } from 'react-hot-loader'
