@@ -1,0 +1,42 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "globals": {
+    "React": true,
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true,
+      "experimentalObjectRestSpread": true
+    },
+  },
+  "plugins": [
+    "mocha"
+  ],
+  "rules": {
+    semi: [2, "never"],
+    prefer-const: 2,
+    "import/no-unresolved": 0,
+    key-spacing: [2, { "mode": "minimum" }],
+    comma-dangle: [2, "always-multiline"],
+    no-multi-spaces: 0,
+    no-underscore-dangle: 0,
+    no-unused-expressions: 0,
+    max-len: 0,
+    "import/extensions": [2, "never"],
+    "import/no-extraneous-dependencies": ["off", {"devDependencies": false, "optionalDependencies": false, "peerDependencies": false}],
+    "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx"] }],
+    "react/require-default-props": "off",
+    "no-param-reassign": "off",
+    "no-script-url": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "jsx-a11y/label-has-for": "off",
+    "import/prefer-default-export": "off",
+    "react/no-array-index-key": "off",
+    "react/forbid-prop-types": "off"
+  }
+}
