@@ -21,5 +21,9 @@ module.exports = {
       path: 'public/[name]-manifest.json',
       name: '[name]_lib'
     }),
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery"
+    })
   ],
 }

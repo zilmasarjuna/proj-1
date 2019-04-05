@@ -3,7 +3,7 @@ var webpack           = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 config.entry.app = [
-  'babel-polyfill',
+  '@babel/polyfill',
   'webpack/webpack-public-path.js',
   'app.js',
 ]

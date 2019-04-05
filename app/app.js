@@ -1,6 +1,7 @@
 import { render } from 'react-dom'
 import { flowRight } from 'lodash'
 import { AppContainer } from 'react-hot-loader'
+import 'styles'
 import Root from 'containers/Root'
 import configureStore from 'store/configureStore'
 

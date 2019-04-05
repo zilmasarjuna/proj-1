@@ -3,7 +3,7 @@ var webpack           = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 config.entry.app = [
-  'babel-polyfill',
+  '@babel/polyfill',
   'eventsource-polyfill',
   'react-hot-loader/patch',
   'webpack/webpack-public-path.js',

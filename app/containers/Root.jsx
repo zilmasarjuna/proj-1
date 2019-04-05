@@ -4,7 +4,7 @@ import { PersistGate } from 'redux-persist/es/integration/react'
 import { Router, Route, Switch } from 'react-router-dom'
 import { createBrowserHistory } from 'history'
 
-import Welcome from 'containers/Welcome'
+import Login from 'containers/Login'
 import NotFound from 'containers/NotFound'
 
 const history = createBrowserHistory()
@@ -15,7 +15,7 @@ const Root = ({ store, persistor }) => (
 
       <Router history={history}>
         <Switch>
-          <Route exact path="/" component={Welcome} />
+          <Route exact path="/" component={Login} />
 
           <Route component={NotFound} />
         </Switch>
