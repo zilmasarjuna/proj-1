@@ -2,12 +2,10 @@ import PropTypes from 'prop-types'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/es/integration/react'
 import { Router, Route, Switch } from 'react-router-dom'
-import { createBrowserHistory } from 'history'
-
+import history from 'utils/history'
 import Login from 'containers/Login'
 import NotFound from 'containers/NotFound'
-
-const history = createBrowserHistory()
+import Dashboard from 'containers/Dashboard'
 
 const Root = ({ store, persistor }) => (
   <Provider store={store}>
@@ -16,6 +14,7 @@ const Root = ({ store, persistor }) => (
       <Router history={history}>
         <Switch>
           <Route exact path="/" component={Login} />
+          <Route exact path="/dashboard" component={Dashboard} />
 
           <Route component={NotFound} />
         </Switch>

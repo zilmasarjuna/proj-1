@@ -29,7 +29,7 @@ const runApp = () => () => (
         store={store}
         persistor={persistor}
       />
-    </AppContainer>, document.getElementById('mount')
+    </AppContainer>, document.getElementById('mount'),
   )
 )
 

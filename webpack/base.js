@@ -6,6 +6,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin')
 var appConfig = {
   project_name: process.env.PROJECT_NAME || 'clapping-ape',
   node_env: process.env.NODE_ENV || 'development',
+  auth_cookie_name: process.env.AUTH_COOKIE_NAME || 'ca_auth_token'
 }
 
 var postcssLoaderOptions = {
