@@ -38,9 +38,8 @@ Then open [http://localhost:8082/](http://localhost:8082/) on your web browser.
 
 ### Testing
 
-1. Run `yarn test` for simple test. (on progress)
-2. Run `yarn run test:watch` for watch tests. (on progress)
-file in this folder to check the results.
+1. Run `yarn test` for simple test. (WIP)
+2. Run `yarn run test:watch` for watch tests. (WIP)
 
 ### Linting
 
