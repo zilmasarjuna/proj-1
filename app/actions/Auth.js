@@ -29,6 +29,14 @@ export const removeToken = () => {
   Cookies.remove(config.auth_cookie_name, { path: '/', domain: Browser.getRootDomain() })
 }
 
+export const redirectToLogin = () => (
+  Browser.setWindowHref('/')
+)
+
+const getAccessToken = () => (
+  Cookies.get(config.auth_cookie_name)
+)
+
 export const loginUser = data => (
   (dispatch) => {
     dispatch(authenticateUserSuccess(data))
@@ -63,17 +71,37 @@ export const authenticateByCredentials = ({ email, password }) => (
   }
 )
 
-export const clearCurrentUser = () => (
-  () => {
-    removeToken()
-    Browser.setWindowHref('/')
+export const authenticateByToken = () => (
+  (dispatch) => {
+    const accessToken = getAccessToken()
+
+    if (isEmpty(accessToken)) {
+      return redirectToLogin()
+    }
+
+    dispatch(authenticateUserRequest())
+
+    return API.post(
+      '/auth/authorization',
+      { token: accessToken },
+    ).then(
+      (response) => {
+        if (response.data.status) {
+          dispatch(authenticateUserSuccess({ access_token: accessToken }))
+        } else {
+          dispatch(authenticateUserFailure())
+          redirectToLogin()
+        }
+      },
+    ).catch((err) => {
+      console.error(err) // eslint-disable-line no-console
+    })
   }
 )
 
-const getAccessToken = () => (
-  Cookies.get(config.auth_cookie_name)
-)
-
-export const isLoggedOut = () => (
-  isEmpty(getAccessToken())
+export const clearCurrentUser = () => (
+  () => {
+    removeToken()
+    redirectToLogin()
+  }
 )

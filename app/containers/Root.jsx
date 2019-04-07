@@ -3,9 +3,51 @@ import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/es/integration/react'
 import { Router, Route, Switch } from 'react-router-dom'
 import history from 'utils/history'
-import Login from 'containers/Login'
+import privateComponent from 'utils/hocs/privateComponent'
+import publicComponent from 'utils/hocs/publicComponent'
+import PublicLayout from 'containers/layouts/PublicLayout'
+import PrivateLayout from 'containers/layouts/PrivateLayout'
+
+import Login from 'containers/login/Login'
 import NotFound from 'containers/NotFound'
-import Dashboard from 'containers/Dashboard'
+import Dashboard from 'containers/dashboard/Dashboard'
+
+const PublicRoute = (props) => {
+  const {
+    component: Component,
+    redirect,
+    redirectPath,
+    ...rest
+  } = props
+
+  const PublicLayoutView = publicComponent(PublicLayout, redirect, redirectPath)
+
+  return (
+    <Route
+      {...rest}
+      render={matchProps => (
+        <PublicLayoutView>
+          <Component {...matchProps} />
+        </PublicLayoutView>
+      )}
+    />
+  )
+}
+
+const PrivateRoute = ({ component: Component, ...rest }) => {
+  const PrivateLayoutView = privateComponent(PrivateLayout)
+
+  return (
+    <Route
+      {...rest}
+      render={matchProps => (
+        <PrivateLayoutView>
+          <Component {...matchProps} />
+        </PrivateLayoutView>
+      )}
+    />
+  )
+}
 
 const Root = ({ store, persistor }) => (
   <Provider store={store}>
@@ -13,10 +55,10 @@ const Root = ({ store, persistor }) => (
 
       <Router history={history}>
         <Switch>
-          <Route exact path="/" component={Login} />
-          <Route exact path="/dashboard" component={Dashboard} />
+          <PublicRoute redirect exact path="/" component={Login} />
+          <PrivateRoute path="/dashboard" component={Dashboard} />
 
-          <Route component={NotFound} />
+          <PublicRoute component={NotFound} />
         </Switch>
       </Router>
 
@@ -27,6 +69,16 @@ const Root = ({ store, persistor }) => (
 Root.propTypes = {
   store: PropTypes.shape().isRequired,
   persistor: PropTypes.shape().isRequired,
+}
+
+PrivateRoute.propTypes = {
+  component: PropTypes.any,
+}
+
+PublicRoute.propTypes = {
+  component: PropTypes.any,
+  redirect: PropTypes.bool,
+  redirectPath: PropTypes.string,
 }
 
 export default Root

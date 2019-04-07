@@ -6,6 +6,7 @@ import {
 
 const initialState = {
   isAuthenticating: false,
+  isLoggedIn: false,
 }
 
 export default function auth(state = initialState, action) {
@@ -19,12 +20,14 @@ export default function auth(state = initialState, action) {
       return {
         ...state,
         isAuthenticating: false,
+        isLoggedIn: true,
         currentUser: action.currentUser,
       }
     case AUTHENTICATE_USER_FAILURE:
       return {
         ...state,
         isAuthenticating: false,
+        isLoggedIn: false,
         errorMessage: action.errorMessage,
       }
     default:

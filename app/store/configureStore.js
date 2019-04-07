@@ -51,9 +51,9 @@ const persistor = persistStore(store, persistConfig, () => {
 /* eslint-disable arrow-body-style */
 const configureStore = () => {
   // uncomment this for clearing redux persistor storage
-  // if (isDevelopment) {
-  //   persistor.purge()
-  // }
+  if (isDevelopment) {
+    persistor.purge()
+  }
 
   return { persistor, store }
 }

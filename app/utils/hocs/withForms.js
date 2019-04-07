@@ -1,6 +1,11 @@
 import { compose, withState, withHandlers } from 'recompose'
 import {
-  without, omit, isBoolean, isEmpty, isString, isNumber,
+  without,
+  omit,
+  isBoolean,
+  isEmpty,
+  isString,
+  isNumber,
 } from 'lodash'
 
 /*
@@ -25,7 +30,10 @@ import {
  */
 
 const getValue = (props, {
-  type, name, value, checked,
+  type,
+  name,
+  value,
+  checked,
 }) => {
   switch (true) {
     // value='on' is default behaivour if value is not given in checkbox
