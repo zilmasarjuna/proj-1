@@ -19,6 +19,7 @@
   ],
   "rules": {
     semi: [2, "never"],
+    max-len: 0,
     "react/require-default-props": "off",
     "import/no-unresolved": 0,
     "react/forbid-prop-types": "off",
