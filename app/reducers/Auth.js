@@ -2,11 +2,11 @@ import {
   AUTHENTICATE_USER_REQUEST,
   AUTHENTICATE_USER_SUCCESS,
   AUTHENTICATE_USER_FAILURE,
+  UPDATE_AUTH_CURRENT_USER,
 } from 'constants/ActionTypes'
 
 const initialState = {
   isAuthenticating: false,
-  isLoggedIn: false,
 }
 
 export default function auth(state = initialState, action) {
@@ -20,15 +20,18 @@ export default function auth(state = initialState, action) {
       return {
         ...state,
         isAuthenticating: false,
-        isLoggedIn: true,
         currentUser: action.currentUser,
       }
     case AUTHENTICATE_USER_FAILURE:
       return {
         ...state,
         isAuthenticating: false,
-        isLoggedIn: false,
         errorMessage: action.errorMessage,
+      }
+    case UPDATE_AUTH_CURRENT_USER:
+      return {
+        ...state,
+        currentUser: action.currentUser,
       }
     default:
       return state

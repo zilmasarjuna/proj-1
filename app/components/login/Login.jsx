@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { Button, Form, Alert } from 'react-bootstrap'
 
-const LoginView = (props) => {
+const Login = (props) => {
   const {
     onChange,
     onSubmit,
@@ -27,7 +27,7 @@ const LoginView = (props) => {
   )
 }
 
-LoginView.propTypes = {
+Login.propTypes = {
   onChange: PropTypes.func,
   onSubmit: PropTypes.func,
   form: PropTypes.any,
@@ -35,4 +35,4 @@ LoginView.propTypes = {
   isAuthenticating: PropTypes.bool,
 }
 
-export default LoginView
+export default Login

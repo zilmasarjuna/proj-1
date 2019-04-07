@@ -9,6 +9,7 @@ import {
   AUTHENTICATE_USER_REQUEST,
   AUTHENTICATE_USER_SUCCESS,
   AUTHENTICATE_USER_FAILURE,
+  UPDATE_AUTH_CURRENT_USER,
 } from 'constants/ActionTypes'
 
 export const authenticateUserRequest = () => ({
@@ -23,6 +24,11 @@ export const authenticateUserSuccess = data => ({
 export const authenticateUserFailure = errorMessage => ({
   type: AUTHENTICATE_USER_FAILURE,
   errorMessage,
+})
+
+export const updateAuthCurrentUser = currentUser => ({
+  type: UPDATE_AUTH_CURRENT_USER,
+  currentUser,
 })
 
 export const removeToken = () => {
@@ -46,7 +52,7 @@ export const loginUser = data => (
       domain: Browser.getRootDomain(),
     })
 
-    history.push('/dashboard')
+    history.push('/welcome')
   }
 )
 
@@ -62,11 +68,12 @@ export const authenticateByCredentials = ({ email, password }) => (
         if (response.data.status) {
           dispatch(loginUser(response.data.data))
         } else {
+          dispatch(updateAuthCurrentUser(null))
           dispatch(authenticateUserFailure(response.data.message))
         }
       },
     ).catch((err) => {
-      console.error(err) // eslint-disable-line no-console
+      dispatch(authenticateUserFailure(err.message)) // eslint-disable-line no-console
     })
   }
 )
@@ -100,8 +107,10 @@ export const authenticateByToken = () => (
 )
 
 export const clearCurrentUser = () => (
-  () => {
+  (dispatch) => {
+    dispatch(updateAuthCurrentUser(null))
     removeToken()
+
     redirectToLogin()
   }
 )

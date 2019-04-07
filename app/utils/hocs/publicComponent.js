@@ -4,21 +4,21 @@ import Browser from 'utils/Browser'
 
 export const mapStateToProps = (state) => {
   const {
-    isLoggedIn,
+    currentUser,
   } = state.root.auth
 
   return {
-    isLoggedIn,
+    currentUser,
   }
 }
 
-const publicComponent = (Component, redirect = false, redirectPath = '/dashboard') => compose(
+const publicComponent = (Component, redirect = false, redirectPath = '/welcome') => compose(
   connect(
     mapStateToProps,
   ),
   lifecycle({
     componentDidMount() {
-      if (this.props.isLoggedIn && redirect) {
+      if (!!this.props.currentUser && redirect) {
         Browser.setWindowHref(redirectPath)
       }
     },

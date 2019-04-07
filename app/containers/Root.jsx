@@ -10,7 +10,7 @@ import PrivateLayout from 'containers/layouts/PrivateLayout'
 
 import Login from 'containers/login/Login'
 import NotFound from 'containers/NotFound'
-import Dashboard from 'containers/dashboard/Dashboard'
+import Welcome from 'containers/welcome/Welcome'
 
 const PublicRoute = (props) => {
   const {
@@ -56,7 +56,7 @@ const Root = ({ store, persistor }) => (
       <Router history={history}>
         <Switch>
           <PublicRoute redirect exact path="/" component={Login} />
-          <PrivateRoute path="/dashboard" component={Dashboard} />
+          <PrivateRoute path="/welcome" component={Welcome} />
 
           <PublicRoute component={NotFound} />
         </Switch>
