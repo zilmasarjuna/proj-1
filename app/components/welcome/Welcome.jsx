@@ -13,9 +13,11 @@ const Welcome = ({ currentUser, onLogout }) => (
       </p>
 
       <div style={{ marginBottom: '30px' }}>
-        <span style={{ fontSize: '10px' }}>
-          {`Access Token: ${currentUser.access_token}`}
-        </span>
+        { currentUser && (
+          <span style={{ fontSize: '10px' }}>
+            {`Access Token: ${currentUser.access_token}`}
+          </span>
+        )}
       </div>
 
       <Button onClick={() => onLogout()} variant="primary">Logout</Button>
