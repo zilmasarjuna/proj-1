@@ -112,7 +112,7 @@ export const clearCurrentUser = () => (
   () => {
     purgeStoredState(mainPersistConfig).then(() => {
       removeToken()
-      Browser.setWindowHref('/login')
+      Browser.setWindowHref('/')
     })
   }
 )
