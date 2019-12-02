@@ -1,5 +1,7 @@
 import Cookies from 'js-cookie'
 import { isEmpty } from 'lodash'
+import { purgeStoredState } from 'redux-persist'
+import { mainPersistConfig } from 'store/configureStore'
 import history from 'utils/history'
 import config from 'app/config'
 import Browser from 'utils/Browser'
@@ -107,10 +109,10 @@ export const authenticateByToken = () => (
 )
 
 export const clearCurrentUser = () => (
-  (dispatch) => {
-    dispatch(updateAuthCurrentUser(null))
-    removeToken()
-
-    redirectToLogin()
+  () => {
+    purgeStoredState(mainPersistConfig).then(() => {
+      removeToken()
+      Browser.setWindowHref('/')
+    })
   }
 )

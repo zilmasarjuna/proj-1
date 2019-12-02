@@ -15,7 +15,7 @@ import config from 'app/config'
 
 const isDevelopment = config.node_env === 'development'
 
-const mainPersistConfig = {
+export const mainPersistConfig = {
   key: 'root',
   storage: localForage,
   debug: isDevelopment,
