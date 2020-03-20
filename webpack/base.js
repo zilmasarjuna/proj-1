@@ -3,10 +3,15 @@ var webpack = require('webpack')
 var autoprefixer = require('autoprefixer')
 var CopyWebpackPlugin = require('copy-webpack-plugin')
 
+const env = require('dotenv').config()
+
 var appConfig = {
-  project_name: process.env.PROJECT_NAME || 'clapping-ape',
-  node_env: process.env.NODE_ENV || 'development',
-  auth_cookie_name: process.env.AUTH_COOKIE_NAME || 'ca_auth_token'
+  project_name: env.parsed.PROJECT_NAME || 'clapping-ape',
+  node_env: env.parsed.NODE_ENV || 'development',
+  auth_cookie_name: env.parsed.AUTH_COOKIE_NAME || 'ca_auth_token',
+  api_url: env.parsed.API_URL || 'https://surveyor-api.clappingape.com/',
+  assets_url: env.parsed.ASSETS_URL || '',
+  port: env.parsed.PORT || 8082
 }
 
 var postcssLoaderOptions = {

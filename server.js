@@ -1,7 +1,10 @@
 var history = require('connect-history-api-fallback')
 var express = require('express')
 var app = express()
-var port = process.env.PORT || 8082
+
+var env = require('dotenv').config()
+
+var port = env.parsed.PORT || 8082
 
 if (process.env.NODE_ENV !== 'production') {
   var config = require('./webpack/development')

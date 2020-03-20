@@ -6,11 +6,13 @@
     "build:prod": "NODE_ENV=production webpack --config webpack/production.js",
     "build:dev": "webpack --config webpack/development.js",
     "build:vendor": "webpack --config webpack/vendor.js",
-    "start": "yarn run build:vendor && yarn run build:dev && node server.js",
+    "start:dev": "yarn run build:vendor && yarn run build:dev && node server.js",
     "lint": "eslint --cache --ext .js --ext .jsx app",
-    "fixlint": "eslint --fix --ext .js --ext .jsx app"
+    "fixlint": "eslint --fix --ext .js --ext .jsx app",
+    "start:prod": "yarn run build:vendor && yarn run build:prod && node server.js"
   },
   "dependencies": {
+    "antd": "^4.0.2",
     "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
     "intl": "^1.2.5",
@@ -42,6 +44,7 @@
     "connect-history-api-fallback": "^1.6.0",
     "copy-webpack-plugin": "^5.0.2",
     "css-loader": "^2.1.1",
+    "dotenv": "^8.2.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.16.0",
