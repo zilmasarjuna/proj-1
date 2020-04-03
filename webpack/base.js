@@ -105,6 +105,8 @@ var config = {
     new webpack.ProvidePlugin({ React: 'react' }),
     new CopyWebpackPlugin([
       { from: `app/assets/images/favicon-${appConfig.project_name}.png`, to: 'favicon.png' },
+      { from: 'app/assets/images', to: 'assets' },
+      { from: 'app/assets/fonts', to: 'assets/fonts' }
     ])
   ],
   devtool: process.env.DEVTOOL || 'cheap-module-eval-source-map'

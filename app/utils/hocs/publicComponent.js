@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { compose, lifecycle } from 'recompose'
-import Browser from 'utils/Browser'
+import history from 'utils/history'
 
 export const mapStateToProps = (state) => {
   const {
@@ -19,7 +19,7 @@ const publicComponent = (Component, redirect = false, redirectPath = '/welcome')
   lifecycle({
     componentDidMount() {
       if (!!this.props.currentUser && redirect) {
-        Browser.setWindowHref(redirectPath)
+        history.push(redirectPath)
       }
     },
   }),

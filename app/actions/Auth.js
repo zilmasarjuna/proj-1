@@ -38,10 +38,10 @@ export const removeToken = () => {
 }
 
 export const redirectToLogin = () => (
-  Browser.setWindowHref('/')
+  history.push('/')
 )
 
-const getAccessToken = () => (
+export const getAccessToken = () => (
   Cookies.get(config.auth_cookie_name)
 )
 
@@ -49,12 +49,12 @@ export const loginUser = data => (
   (dispatch) => {
     dispatch(authenticateUserSuccess(data))
 
-    Cookies.set(config.auth_cookie_name, data.access_token, {
+    Cookies.set(config.auth_cookie_name, data.token, {
       path: '/',
       domain: Browser.getRootDomain(),
     })
 
-    history.push('/welcome')
+    history.push('/dashboard')
   }
 )
 
@@ -63,11 +63,11 @@ export const authenticateByCredentials = ({ email, password }) => (
     dispatch(authenticateUserRequest())
 
     return API.post(
-      '/auth/login',
+      '/ottokasir/web-admin/auth/login',
       { email, password },
     ).then(
       (response) => {
-        if (response.data.status) {
+        if (response.data.meta.status) {
           dispatch(loginUser(response.data.data))
         } else {
           dispatch(updateAuthCurrentUser(null))

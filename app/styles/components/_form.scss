@@ -1,43 +1,131 @@
 .form-container {
-  text-align: center;
-}
-
-.form-signin {
+  background: #ebf9ff;
+  height: 100%;
+  position: absolute;
   width: 100%;
-  max-width: 330px;
-  margin: auto;
 
-  h4 {
-    margin-bottom: 30px;
-  }
+  .form-box { 
+    width: 550px;
+    margin: 5% auto 0;
 
-  .form-control {
-    position: relative;
-    box-sizing: border-box;
-    height: auto;
-    padding: 10px;
-    font-size: 16px;
-    
-    &:focus {
-      z-index: 2;
-    }
-  }
-  
-  input {
-    &[type="email"] {
-      margin-bottom: -1px;
-      border-bottom-right-radius: 0;
-      border-bottom-left-radius: 0;
-    }
-    &[type="password"] {
-      margin-bottom: 10px;
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
+    @media screen and (max-width: 500px) {
+      width: 90%;
     }
   }
 }
+/*******************
+Form-control
+******************/
+.form-control {
+  color: #67757c;
+  min-height: 38px;
+  display: initial; }
 
-.error-details {
+.form-control-sm {
+  min-height: 20px; }
+
+.form-control:disabled,
+.form-control[readonly] {
+  opacity: 0.7; }
+
+.custom-control-input:focus ~ .custom-control-indicator {
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+
+.custom-control-input:checked ~ .custom-control-indicator {
+  background-color: #06d79c; }
+
+form label {
+  font-weight: 400; }
+
+.form-group {
+  margin-bottom: 25px; 
+
+  label {
+    display: block;
+  }
+
+  span {
+    position: relative;
+    top: 10px;
+    color: #5a738a;
+    font-size: 14px;
+  }
+}
+
+.form-horizontal label {
+  margin-bottom: 0px; }
+
+.form-control-static {
+  padding-top: 0px; }
+
+.form-bordered .form-group {
+  border-bottom: 1px solid rgba(120, 130, 140, 0.13);
+  padding-bottom: 20px; }
+
+.form-control:focus {
+  box-shadow: none;
+}
+
+.error {
+  color: red;
+  top: 10px;
+  position: relative;
+}
+
+
+/*============================================================== 
+Form Material page
+ ============================================================== */
+/*Material inputs*/
+.form-material .form-group {
+  overflow: hidden; }
+
+.form-material .form-control {
+  background-color: transparent;
+  background-position: center bottom, center calc(100% - 1px);
+  background-repeat: no-repeat;
+  background-size: 0 2px, 100% 1px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 12px;
+  -webkit-transition: background 0s ease-out 0s;
+  -o-transition: background 0s ease-out 0s;
+  transition: background 0s ease-out 0s; }
+
+.form-material .form-control,
+.form-material .form-control.focus,
+.form-material .form-control:focus {
+  border-radius: 4px;
+  border: solid 1px #e2e2e2;
+  background-color: #ffffff;
+  float: none; }
+
+.form-material .form-control.focus,
+.form-material .form-control:focus {
+  background-size: 100% 2px, 100% 1px;
+  outline: 0 none;
+  -webkit-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s; }
+
+.form-control-line .form-group {
+  overflow: hidden; }
+
+.form-control-line .form-control {
+  border: 0px;
+  border-radius: 0px;
+  padding-left: 0px;
+  border-bottom: 1px solid #f6f9ff; }
+  .form-control-line .form-control:focus {
+    border-bottom: 1px solid #398bf7; }
+
+.logo-login {
+  margin-bottom: 30px;
+}
+
+.info-text {
   margin-top: 20px;
-  margin-bottom: 20px;
+  color: #273d52;
+  font-size: 12px;
 }

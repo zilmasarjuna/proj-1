@@ -5,7 +5,7 @@ import { getAccessToken, removeToken } from 'actions/Auth'
 import { mainPersistConfig } from 'store/configureStore'
 import { purgeStoredState } from 'redux-persist'
 
-const apiBaseURL = 'http://localhost:3000'
+const apiBaseURL = config.api_url
 
 axios.defaults.baseURL = apiBaseURL
 axios.defaults.headers['X-Requested-With'] = 'XMLHttpRequest'

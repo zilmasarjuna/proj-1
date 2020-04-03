@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux'
 import { compose, withHandlers } from 'recompose'
 import { authenticateByCredentials } from 'actions/Auth'
 import withForms from 'utils/hocs/withForms'
-import LoginView from 'components/login/Login'
+import LoginView from 'components/page/login/Login'
 
 export function mapStateToProps(state) {
   const {
