@@ -15,7 +15,7 @@ const Login = (props) => {
 
   return (
     <div className="form-container">
-      
+
       <div className="form-box">
         <div className="logo-login text-center">
           <img src="/assets/otto_kasir.svg" alt="logo" />

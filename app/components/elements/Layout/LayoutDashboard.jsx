@@ -1,17 +1,14 @@
-
-import { Layout, Menu, Icon } from 'antd';
+import PropTypes from 'prop-types'
+import { Layout, Menu } from 'antd'
+import { Link } from 'react-router-dom'
 import {
   MenuOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-  UploadOutlined,
- 
-} from '@ant-design/icons';
+} from '@ant-design/icons'
 
 import DropdownNotif from '../Dropdown/DropdownNotif'
 import DropdownProfile from '../Dropdown/DropdownProfile'
 
-const { Header, Sider, Content } = Layout;
+const { Header, Sider, Content } = Layout
 
 const { SubMenu } = Menu
 
@@ -20,64 +17,92 @@ class LayoutDashboard extends React.Component {
     super(props)
     this.state = {
       collapsed: false,
-    };
+    }
 
     this.toggle = this.toggle.bind(this)
   }
 
-  toggle () {
-    this.setState({
-      collapsed: !this.state.collapsed,
-    });
-  };
+  toggle() {
+    this.setState(prevState => ({
+      collapsed: !prevState.collapsed,
+    }))
+  }
 
   render() {
     const {
-      children 
+      children,
+      active,
     } = this.props
+    const {
+      collapsed,
+    } = this.state
     return (
       <Layout style={{ height: '100%' }}>
-        <Sider width="260" trigger={null} collapsible collapsed={this.state.collapsed} breakpoint="lg"
-      collapsedWidth="0">
+        <Sider
+          width="260"
+          trigger={null}
+          collapsible
+          collapsed={collapsed}
+          breakpoint="md"
+        >
           <div className="logo">
             <img src="/assets/otto_kasir.svg" alt="logo" />
-            <span>Ottokasir Web Portal</span>
+            {!collapsed && (<span>Ottokasir Web Portal</span>)}
           </div>
           <div className="menu-side">
             <div className="title">
               <h4>Menu</h4>
             </div>
-            <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+            <Menu theme="dark" mode="inline" defaultSelectedKeys={[active]}>
               <Menu.Item key="1">
-                <img src="/assets/dashboard-menu.svg" alt="dashboard-menu" className="anticon" />
-                <span>Dashboard</span>
+                <Link to="/dashboard">
+                  <img src="/assets/dashboard-menu.svg" alt="dashboard-menu" className="anticon" />
+                  <span>Dashboard</span>
+                </Link>
               </Menu.Item>
               <Menu.Item key="2">
-                <img src="/assets/dashboard-menu.svg" alt="dashboard-menu" className="anticon" />
-                <span>Manage Merchant</span>
+                <Link to="/merchant">
+                  <img src="/assets/dashboard-menu.svg" alt="dashboard-menu" className="anticon" />
+                  <span>Manage Merchant</span>
+                </Link>
               </Menu.Item>
               <Menu.Item key="3">
-                <img src="/assets/dashboard-menu.svg" alt="dashboard-menu" className="anticon" />
-                <span>Manage Store Type</span>
+                <Link to="/store">
+                  <img src="/assets/dashboard-menu.svg" alt="dashboard-menu" className="anticon" />
+                  <span>Manage Store Type</span>
+                </Link>
               </Menu.Item>
               <SubMenu
                 key="sub-item"
-                title={
+                title={(
                   <>
                     <img src="/assets/dashboard-menu.svg" alt="dashboard-menu" className="anticon" />
                     <span>Manage Product</span>
                   </>
-                }
+)}
               >
-                <Menu.Item key="sub-item-1">Master Product</Menu.Item>
+                <Menu.Item key="sub-item-1">
+                  <Link to="/product">
+                    Master Product
+                  </Link>
+                </Menu.Item>
+                <Menu.Item key="sub-item-1">
+                  <Link to="/all-product">
+                    All Product
+                  </Link>
+                </Menu.Item>
               </SubMenu>
               <Menu.Item key="4">
-                <img src="/assets/dashboard-menu.svg" alt="dashboard-menu" className="anticon" />
-                <span>Transaction</span>
+                <Link to="/transaction">
+                  <img src="/assets/dashboard-menu.svg" alt="dashboard-menu" className="anticon" />
+                  <span>Transaction</span>
+                </Link>
               </Menu.Item>
               <Menu.Item key="5">
-                <img src="/assets/dashboard-menu.svg" alt="dashboard-menu" className="anticon" />
-                <span>Manage Store Type</span>
+                <Link to="/report">
+                  <img src="/assets/dashboard-menu.svg" alt="dashboard-menu" className="anticon" />
+                  <span>Report</span>
+                </Link>
               </Menu.Item>
             </Menu>
           </div>
@@ -94,9 +119,7 @@ class LayoutDashboard extends React.Component {
             </div>
           </Header>
           <Content
-            className="site-layout-background"
             style={{
-              margin: '24px 16px',
               padding: 24,
               minHeight: 280,
             }}
@@ -105,8 +128,12 @@ class LayoutDashboard extends React.Component {
           </Content>
         </Layout>
       </Layout>
-    );
+    )
   }
+}
+
+LayoutDashboard.propTypes = {
+  children: PropTypes.any,
 }
 
 export default LayoutDashboard

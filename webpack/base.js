@@ -67,7 +67,8 @@ var config = {
       },
       {
         test: /\.json$/,
-        use: ['json-loader']
+        use: ['json-loader'],
+        type: "javascript/auto",
       },
       {
         test: /\.html$/,

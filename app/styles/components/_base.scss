@@ -30,8 +30,13 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
   line-height: 1;
-  font-family: ClanOT-Medium;
+  font-family: ClanOT-Medium, sans-serif;
 }
+
+* {
+  font-family: ClanOT-Medium, sans-serif;
+}
+
 ol, ul {
 	list-style: none;
 }
@@ -58,8 +63,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #455a64;
-  font-family: "Montserrat", sans-serif;
+  color: #273d52;
   font-weight: 400; }
 
 h1 {
@@ -87,6 +91,17 @@ h6 {
   line-height: 16px;
   font-size: 14px;
   font-weight: 400; }
+
+p {
+  color: #97a8b8;
+  font-size: 13px;
+}
+
+span {
+  color: #5a738a;
+  font-size: 14px;
+}
+
 
 /*******************
 Paddings
@@ -304,7 +319,6 @@ Button
   border-radius: 8px;
   box-shadow: 4px 4px 12px 0 rgba(143, 174, 187, 0.21);
   background-color: #ffffff;
-
 } 
 
 .text-center {
@@ -364,7 +378,6 @@ Button
     font-size: 18px;
     color: #fff;
     left: 12px;
-    top: 8px;
     position: relative;
     font-weight: bold;
   }
@@ -379,6 +392,17 @@ Button
       font-weight: bold;
     }
   }
+}
+
+.title-page {
+  margin-bottom: 24px;
+}
+
+.box {
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 1px 4px 8px 0 rgba(186, 189, 208, 0.12);
+  background-color: #ffffff;
 }
 
 .ant-layout-sider {
@@ -439,12 +463,82 @@ Button
     }
 }
 
-.ant-menu-item-only-child {
-  padding-left: 55px !important;
-} 
+.ant-menu-sub {
+  .ant-menu-item-only-child {
+    padding-left: 55px !important;
+  } 
+}
 
 .ant-layout.ant-layout-has-sider > .ant-layout {
   @media screen and (max-width: 500px){
     overflow-x: initial;
+  }
+}
+
+.ant-table-thead > tr > th {
+  background-color: #f1f5f7;
+}
+
+td.ant-table-column-sort {
+  background: none;
+}
+
+.ant-table-cell {
+  span {
+    color: #273d52;
+  }
+}
+
+.ant-table-tbody > tr > td  {
+  color: #5a738a;
+}
+
+.search-box {
+  margin-bottom: 24px;
+
+  span.label {
+    position: relative;
+    top: 12px;
+    font-size: 14px;
+  }
+}
+
+.ant-input-search {
+  border-radius: 4px;
+  border: solid 1px #e2e2e2;
+  padding: 10px 12px;
+
+  .ant-input-search-icon {
+    svg {
+      font-size: 20px;
+    }
+  } 
+
+  input {
+    font-size: 14px;
+    font-weight: normal;
+    color: #5a738a
+
+    &::placeholder {
+      opacity: 0.5;
+      font-size: 14px;
+      font-weight: normal;
+      color: #5a738a
+    }
+  }
+
+  &:focus {
+    border: 1px solid #e2e2e2;
+    box-shadow: none;
+  }
+
+  &:hover {
+    border: 1px solid #e2e2e2;
+    box-shadow: none
+  }
+
+  &:visited {
+    border: 1px solid #e2e2e2;
+    box-shadow: none
   }
 }

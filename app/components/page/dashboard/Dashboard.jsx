@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import { LayoutDashboard } from 'components/elements'
 
 const Dashboard = () => (
-  <LayoutDashboard>
+  <LayoutDashboard active="1">
     Dashboard
   </LayoutDashboard>
 )

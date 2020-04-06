@@ -13,6 +13,8 @@ import NotFound from 'containers/NotFound'
 import Welcome from 'containers/welcome/Welcome'
 import Dashboard from 'containers/dashboard/Dashboard'
 
+import MerchantList from 'containers/merchants/MerchantList'
+
 const PublicRoute = (props) => {
   const {
     component: Component,
@@ -59,6 +61,8 @@ const Root = ({ store, persistor }) => (
           <PublicRoute redirect exact path="/" component={Login} />
           <PrivateRoute path="/welcome" component={Welcome} />
           <PrivateRoute path="/dashboard" component={Dashboard} />
+
+          <PrivateRoute path="/merchant" exact component={MerchantList} />
 
           <PublicRoute component={NotFound} />
         </Switch>
