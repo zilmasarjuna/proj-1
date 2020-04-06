@@ -1,0 +1,12 @@
+[33m0869004[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;32minitial-commit[m[33m, [m[1;32mdevelopment[m[33m)[m HEAD@{0}: checkout: moving from development to master
+[33m0869004[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;32minitial-commit[m[33m, [m[1;32mdevelopment[m[33m)[m HEAD@{1}: checkout: moving from master to development
+[33m0869004[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;32minitial-commit[m[33m, [m[1;32mdevelopment[m[33m)[m HEAD@{2}: checkout: moving from initial-commit to master
+[33m0869004[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;32minitial-commit[m[33m, [m[1;32mdevelopment[m[33m)[m HEAD@{3}: checkout: moving from development to initial-commit
+[33m0869004[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;32minitial-commit[m[33m, [m[1;32mdevelopment[m[33m)[m HEAD@{4}: checkout: moving from master to development
+[33m0869004[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;32minitial-commit[m[33m, [m[1;32mdevelopment[m[33m)[m HEAD@{5}: commit: Initial commit
+[33m4ac7b0a[m HEAD@{6}: commit: initial commit
+[33mf70b356[m HEAD@{7}: pull origin master: Fast-forward
+[33mca1a6ca[m HEAD@{8}: checkout: moving from fixbug/env to master
+[33m7987636[m[33m ([m[1;32mfixbug/env[m[33m)[m HEAD@{9}: commit: fix .env not read
+[33mca1a6ca[m HEAD@{10}: checkout: moving from master to fixbug/env
+[33mca1a6ca[m HEAD@{11}: clone: from https://Zilmas@bitbucket.org/clapping-ape/react-starter-kit.git

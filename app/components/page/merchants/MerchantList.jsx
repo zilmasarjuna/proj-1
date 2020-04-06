@@ -43,7 +43,7 @@ const MerchantList = ({ merchants }) => {
     <LayoutDashboard active="2">
       <div className="title-page">
         <Title size={24}>
-        Merchant
+          Merchant
         </Title>
       </div>
       <Box>
